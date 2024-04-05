@@ -7,9 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>página de prueba de blade</h1>
-
-    <a href="{{ route('crud')}}">CRUD</a>
-
+    <h1>Contact 1</h1>
+    {{ $name }}
 </body>
 </html>
