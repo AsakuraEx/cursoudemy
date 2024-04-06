@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrimerControlador;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,12 +8,16 @@ Route::get('/', function () {
 });
 
 Route::get('/contact', function() {
-    //$data = ['name' => 'Francisco'];
-    //return view('contact', $data);
-    return redirect()->route('contact2', 'GET' ,301);
+    $users = ['Francisco Escobar', 'Diego Escobar', 'Sara Mancia'];
+    $name = 'Francisco';
+    return view('contact', compact('name', 'users'));
+    //return redirect()->route('contact2', 'GET' ,301);
     //return to_route('contact2');
 })->name('contact');
 
 Route::get('/contact2', function() {
     return view('contact2');
 })->name('contact2');
+
+Route::get('/test',[PrimerControlador::class, 'index']);
+Route::resource('/test', PrimerControlador::class);
