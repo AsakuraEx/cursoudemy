@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('post', function (Blueprint $table) {
             $table->id();
             $table->string("title", 255);
-            $table->string('description',255);
-            $table->string("slug", 255);
-            $table->text("content");
-            $table->string("image");
-            $table->enum("posted", ['yes', 'not']);
+            $table->string("slug", 255)->nullable();
+            $table->text("content")->nullable();
+            $table->text("description")->nullable();
+            $table->string("image")->nullable();
+            $table->enum("posted", ['yes', 'not'])->default('not');
             $table->timestamps();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
         });
