@@ -21,6 +21,16 @@
 
     <form action="{{ route('post.store') }}" method="post">
         @csrf
+
+        @if ($errors->any())
+            @foreach ($errors->get('title') as $error)
+                <div style="color:red">
+                    {{ $error }}
+                </div>
+            @endforeach
+            <br>
+        @endif
+
         <label for="">Titulo</label>
         <input type="text" name="title">
         
