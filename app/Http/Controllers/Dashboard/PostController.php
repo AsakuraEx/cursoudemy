@@ -16,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo "index";
+
+        $posts = Post::get();
+        return view('dashboard.post.index', compact('posts'));
         //
     }
 
@@ -47,7 +49,7 @@ class PostController extends Controller
         //dd($validated->errors());
 
         Post::create($request->all());
-        //return to_route('post.create');
+        return to_route('post.index');
 
 
     }

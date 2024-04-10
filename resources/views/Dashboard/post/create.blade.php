@@ -69,7 +69,7 @@
 @endsection
 
 @section('footer')
-    
+    <a href="{{ route('post.index') }}"><button type="button">Regresar al listado</button></a>
 @endsection
 
 </body>
