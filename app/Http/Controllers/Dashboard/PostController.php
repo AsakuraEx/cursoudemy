@@ -7,6 +7,7 @@ use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -50,6 +51,13 @@ class PostController extends Controller
 
         Post::create($request->all());
         return to_route('post.index');
+        // $data = $request->validated();
+        // $data['slug'] = Str::slug($data['title']);
+        // dd($data);
+
+        //Post::create($request->all());
+        Post::create($request->validated());
+        //return to_route('post.create');
 
 
     }
