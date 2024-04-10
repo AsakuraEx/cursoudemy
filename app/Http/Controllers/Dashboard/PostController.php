@@ -49,15 +49,13 @@ class PostController extends Controller
         //$validated = Validator::make($request->all(),StoreRequest::myRules());
         //dd($validated->errors());
 
-        Post::create($request->all());
-        return to_route('post.index');
         // $data = $request->validated();
         // $data['slug'] = Str::slug($data['title']);
         // dd($data);
 
         //Post::create($request->all());
         Post::create($request->validated());
-        //return to_route('post.create');
+        return to_route('post.index');
 
 
     }
