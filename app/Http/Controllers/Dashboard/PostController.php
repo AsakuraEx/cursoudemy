@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Post\PutRequest;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::get();
+        $posts = Post::paginate(3);
         return view('dashboard.post.index', compact('posts'));
         //
     }
@@ -65,7 +66,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        echo "Show";
     }
 
     /**
@@ -73,15 +74,17 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::pluck('id', 'title');
+        return view('dashboard.post.edit', compact('categories', 'post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PutRequest $request, Post $post)
     {
-        //
+        $post->update($request->validated());
+        return to_route('post.index');
     }
 
     /**
@@ -89,6 +92,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        echo "destroy";
     }
 }

@@ -5,19 +5,8 @@ namespace App\Http\Requests\Post;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 
-class StoreRequest extends FormRequest
+class PutRequest extends FormRequest
 {
-
-    static public function myRules() {
-        return [
-            'title' => 'required|min:5|max:200',
-            'slug' => 'required|min:5|max:200|unique:post',
-            'content' => 'required|min:7',
-            'description' => 'required|min:7',
-            'category_id' => 'required|integer',
-            'posted' => 'required'
-        ];
-    }
 
     /**
      * Determine if the user is authorized to make this request.
@@ -41,7 +30,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:200',
-            'slug' => 'required|min:5|max:200|unique:post',
+            'slug' => 'required|min:5|max:200',
             'content' => 'required|min:7',
             'description' => 'required|min:7',
             'category_id' => 'required|integer',
