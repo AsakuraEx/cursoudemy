@@ -72,6 +72,20 @@
 </div>
 <br>
 <div>
+    @if ($errors->any())
+        @foreach ($errors->get('description') as $error)
+            <div style="color:red">
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
+    @if (isset($task) && $task == 'edit')
+        <label for="">Imagen</label>
+        <input type="file" name="image">        
+    @endif
+</div>
+<br>
+<div>
     <button type="submit">Enviar</button>
     <button type="reset">Limpiar</button>
 </div>

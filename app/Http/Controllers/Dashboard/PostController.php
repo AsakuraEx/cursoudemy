@@ -8,6 +8,7 @@ use App\Http\Requests\Post\PutRequest;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,8 +20,18 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(5);
-        return view('dashboard.post.index', compact('posts'));
+        // $data = DB::table('post')->where('category_id','1')->orderBy('title')->pluck('title', 'slug');
+        $data = DB::table('post')->count();
+        $dataFilter1 = DB::table('post')->where('category_id','1')->count();
+        $dataFilter2 = DB::table('post')->where('category_id','2')->count();
+
+        $join = DB::table('post')->join('categories', 'post.category_id', '=', 'categories.id')->select('post.title','post.slug','post.content', 'categories.title as titlec')->orderBy('post.title', 'ASC')->cursorPaginate(3);
+
+        // ESTE ES UN EJEMPLO DE COMO BUSCAR POR CUALQUIER CAMPO
+        // $users = DB::table('users')->where('active', true)->whereAny(['name','email','phone',], 'LIKE', 'Example%')->get();
+
+        $posts = Post::simplePaginate(3);
+        return view('dashboard.post.index', compact('posts','data', 'dataFilter1', 'dataFilter2', 'join'));
         //
     }
 
@@ -57,7 +68,7 @@ class PostController extends Controller
 
         //Post::create($request->all());
         Post::create($request->validated());
-        return to_route('post.index');
+        return to_route('post.index')->with('status','Registro creado');
 
 
     }
@@ -84,8 +95,24 @@ class PostController extends Controller
      */
     public function update(PutRequest $request, Post $post)
     {
-        $post->update($request->validated());
-        return to_route('post.index');
+
+        $data = $request->validated();
+        if (isset($data['image'])) {
+            # code...
+            //dd($request->validated()['image']->extension());
+            $pathFile = "/Images/Post/";
+            $pathSave = "Images/Post/";
+            $filename = 'IMG_POST_'.time().'.'.$data['image']->extension();
+            $data['image'] = $pathFile.$filename;
+            //dd($data['image']);
+            $request->image->move(public_path($pathSave), $filename);
+            
+        }
+
+        $post->update($data);
+
+        //$request->session()->flash('status','Registro actualizado');
+        return to_route('post.index')->with('status','Registro actualizado');
     }
 
     /**
@@ -94,6 +121,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return to_route('post.index');
+        return to_route('post.index')->with('status','Registro eliminado');
     }
 }

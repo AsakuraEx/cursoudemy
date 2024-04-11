@@ -15,7 +15,8 @@
     <div>Content: {{ $post->content }}</div>
     <div>Description: {{ $post->description }}</div>
     <br>
-
+    <h4>Ruta de Imagen: {{ $post->image }}</h4>
+    <img src="{{ $post->image }}" alt="">  
 @endsection
 
 @section('footer')
