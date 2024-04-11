@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(5);
         return view('dashboard.post.index', compact('posts'));
         //
     }
@@ -31,7 +31,8 @@ class PostController extends Controller
     {
         //$categories = Category::get();
         $categories = Category::pluck('id', 'title');
-        return view('dashboard.post.create', compact('categories'));
+        $post = new Post();
+        return view('dashboard.post.create', compact('categories','post'));
         //
     }
 
@@ -66,7 +67,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        echo "Show";
+        return view('dashboard.post.show', compact('post'));
     }
 
     /**
@@ -92,6 +93,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        echo "destroy";
+        $post->delete();
+        return to_route('post.index');
     }
 }
