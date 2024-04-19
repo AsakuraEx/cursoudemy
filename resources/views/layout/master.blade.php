@@ -12,7 +12,7 @@
     </header>
 
     @if(session('status'))
-        {{ session('status') }}
+        <p>{{ session('status') }}</p>
     @endif
 
     @yield('content')
