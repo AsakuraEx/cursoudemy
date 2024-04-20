@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::simplePaginate(3);
+        $categories = Category::Paginate(3);
         return view('dashboard.category.index', compact('categories'));
         //
     }

@@ -3,6 +3,7 @@
 @section('title', 'Posts')
     
 @section('header')
+
     <h1>Listado de Posts (Post actuales: {{ $data }} )</h1>
     <h2>Listado de Posts de Categoria 1: {{ $dataFilter1 }} posts</h2>
     <h2>Listado de Posts de Categoria 2: {{ $dataFilter2 }} posts</h2>
@@ -16,53 +17,56 @@
 
     <a href="{{ route('post.create') }}"><button type="button">Crear Post</button></a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    Titulo
-                </th>
-                <th>
-                    Categoria
-                </th>
-                <th>
-                    Posted
-                </th>
-                <th>
-                    Acciones
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($posts as $post)
+    <div class="container">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        {{ $post->title }}
-                    </td>
-                    <td>
-                        {{ $post->category->title }}
-                    </td>
-                    <td>
-                        {{ $post->posted }}
-                    </td>
-                    <td>
-                        <a href="{{ route('post.edit', $post->id) }}"><button type="button">Editar</button></a>
-                        <a href="{{ route('post.show', $post->id) }}"><button type="button">Ver</button></a>
-
-                        <form action="{{ route('post.destroy', $post->id) }}" method="post">
-                            @csrf
-                            @method("DELETE")
-                            <button type="submit">Eliminar</button>
-                        </form>
-                        
-                    </td>
-                </tr>                
-            @endforeach
-        </tbody>
-    </table>
-
-    {{ $posts->links() }}
-
+                    <th>
+                        Titulo
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                    <th>
+                        Posted
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                    <tr>
+                        <td>
+                            {{ $post->title }}
+                        </td>
+                        <td>
+                            {{ $post->category->title }}
+                        </td>
+                        <td>
+                            {{ $post->posted }}
+                        </td>
+                        <td>
+                            <a href="{{ route('post.edit', $post->id) }}"><button type="button">Editar</button></a>
+                            <a href="{{ route('post.show', $post->id) }}"><button type="button">Ver</button></a>
+    
+                            <form action="{{ route('post.destroy', $post->id) }}" method="post">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit">Eliminar</button>
+                            </form>
+                            
+                        </td>
+                    </tr>                
+                @endforeach
+            </tbody>
+        </table>
+    
+        {{ $posts->links() }}
+    
+    </div>
+    
 @endsection
 
 @section('footer')
@@ -76,7 +80,7 @@
     @endforeach --}}
 
     <h3>Ejemplo de consulta select + inner join</h3>
-    <table border>
+    <table>
         <tr>
             <td style="width: 25%"><strong>Titulo</strong></td>
             <td style="width: 25%"><strong>Slug</strong></td>

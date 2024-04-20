@@ -1,5 +1,4 @@
 @csrf
-
 <div>
     @if ($errors->any())
         @foreach ($errors->get('title') as $error)
@@ -10,7 +9,7 @@
 
     @endif
     <label for="">Titulo</label>
-    <input type="text" name="title" value="{{ old('title', $post->title) }}">
+    <input type="text" class="form-control" name="title" value="{{ old('title', $post->title) }}">
 </div>
 <br>
 <div>
@@ -22,12 +21,12 @@
         @endforeach
     @endif
     <label for="">Slug</label>
-    <input type="text" name="slug" value="{{ old('slug', $post->slug) }}">
+    <input type="text" class="form-control" name="slug" value="{{ old('slug', $post->slug) }}">
 </div>
 <br>
 <div>
     <label for="">Categoria</label>
-    <select name="category_id">
+    <select name="category_id" class="form-control">
         <option value=""></option>
         @foreach ($categories as $title => $id)
             <option value="{{ $id }}" {{ old('category_id', $post->category_id) == $id ? "selected" : "" }}>{{ $title }}</option>            
@@ -56,7 +55,7 @@
         @endforeach
     @endif
     <label for="">Contenido</label>
-    <textarea name="content">{{ old('content', $post->content) }}</textarea>
+    <textarea name="content" class="form-control">{{ old('content', $post->content) }}</textarea>
 </div>
 <br>
 <div>
@@ -68,7 +67,7 @@
         @endforeach
     @endif
     <label for="">Descripcion</label>
-    <textarea name="description">{{ old('description', $post->description) }}</textarea>
+    <textarea name="description" class="form-control">{{ old('description', $post->description) }}</textarea>
 </div>
 <br>
 <div>

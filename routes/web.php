@@ -9,9 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -22,11 +22,16 @@ Route::middleware('auth')->group(function () {
 // Route::resource('post', PostController::class);
 // Route::resource('category', CategoryController::class);
 
-Route::group(['prefix' => 'dashboard'], function(){
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function(){
     
-    Route::resource('post', PostController::class);
-    Route::resource('category', CategoryController::class)->except('show');
-
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+    Route::resources([
+        'post' => PostController::class,
+        'category' => CategoryController::class,
+    ]);
 });
 
 // Route::get('/contact', function() {

@@ -30,7 +30,7 @@ class PostController extends Controller
         // ESTE ES UN EJEMPLO DE COMO BUSCAR POR CUALQUIER CAMPO
         // $users = DB::table('users')->where('active', true)->whereAny(['name','email','phone',], 'LIKE', 'Example%')->get();
 
-        $posts = Post::simplePaginate(3);
+        $posts = Post::Paginate(3);
         return view('dashboard.post.index', compact('posts','data', 'dataFilter1', 'dataFilter2', 'join'));
         //
     }

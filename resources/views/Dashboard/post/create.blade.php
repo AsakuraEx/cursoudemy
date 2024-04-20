@@ -10,16 +10,20 @@
 
 @section('content')
 
-    <form action="{{ route('post.store') }}" method="post">
+    <div class="container">
+        <form action="{{ route('post.store') }}" method="post">
 
-        @include('dashboard.fragment._form')
+            @include('dashboard.fragment._form')
 
-    </form>
+        </form>
+        <a href="{{ route('post.index') }}"><button type="button">Regresar al listado</button></a>
+    </div>
+
 
 @endsection
 
 @section('footer')
-    <a href="{{ route('post.index') }}"><button type="button">Regresar al listado</button></a>
+
 @endsection
 
 </body>
