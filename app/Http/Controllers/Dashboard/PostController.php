@@ -25,12 +25,12 @@ class PostController extends Controller
         $dataFilter1 = DB::table('post')->where('category_id','1')->count();
         $dataFilter2 = DB::table('post')->where('category_id','2')->count();
 
-        $join = DB::table('post')->join('categories', 'post.category_id', '=', 'categories.id')->select('post.title','post.slug','post.content', 'categories.title as titlec')->orderBy('post.title', 'ASC')->cursorPaginate(3);
+        $join = DB::table('post')->join('categories', 'post.category_id', '=', 'categories.id')->select('post.title','post.slug','post.content', 'categories.title as titlec')->orderBy('post.title', 'ASC')->cursorPaginate(10);
 
         // ESTE ES UN EJEMPLO DE COMO BUSCAR POR CUALQUIER CAMPO
         // $users = DB::table('users')->where('active', true)->whereAny(['name','email','phone',], 'LIKE', 'Example%')->get();
 
-        $posts = Post::Paginate(3);
+        $posts = Post::Paginate(10);
         return view('dashboard.post.index', compact('posts','data', 'dataFilter1', 'dataFilter2', 'join'));
         //
     }

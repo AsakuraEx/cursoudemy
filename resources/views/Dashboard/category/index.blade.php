@@ -8,9 +8,9 @@
 
 @section('content')
 
-    <a href="{{ route('category.create') }}"><button type="button">Crear Categoria</button></a>
+    <a href="{{ route('category.create') }}"><button type="button" class="btn-primary">Crear Categoria</button></a>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>
@@ -33,14 +33,14 @@
                     <td>
                         {{ $category->slug }}
                     </td>
-                    <td>
-                        <a href="{{ route('category.edit', $category->id) }}"><button type="button">Editar</button></a>
-                        <a href="{{ route('category.show', $category->id) }}"><button type="button">Ver</button></a>
+                    <td class="td-action">
+                        <a href="{{ route('category.edit', $category->id) }}"><button type="button" class="btn-edit">Editar</button></a>
+                        <a href="{{ route('category.show', $category->id) }}"><button type="button" class="btn-show">Ver</button></a>
 
                         <form action="{{ route('category.destroy', $category->id) }}" method="post">
                             @csrf
                             @method("DELETE")
-                            <button type="submit">Eliminar</button>
+                            <button type="submit" class="btn-danger">Eliminar</button>
                         </form>
                         
                     </td>

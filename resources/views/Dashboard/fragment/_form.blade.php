@@ -55,7 +55,7 @@
         @endforeach
     @endif
     <label for="">Contenido</label>
-    <textarea name="content" class="form-control">{{ old('content', $post->content) }}</textarea>
+    <textarea name="content" class="form-area">{{ old('content', $post->content) }}</textarea>
 </div>
 <br>
 <div>
@@ -67,7 +67,7 @@
         @endforeach
     @endif
     <label for="">Descripcion</label>
-    <textarea name="description" class="form-control">{{ old('description', $post->description) }}</textarea>
+    <textarea name="description" class="form-area">{{ old('description', $post->description) }}</textarea>
 </div>
 <br>
 <div>
@@ -85,6 +85,6 @@
 </div>
 <br>
 <div>
-    <button type="submit">Enviar</button>
-    <button type="reset">Limpiar</button>
+    <button type="submit" class="btn-send">Enviar</button>
+    <button type="reset" class="btn-clean">Limpiar</button>
 </div>

@@ -28,7 +28,7 @@
 
             @endif
             <label for="">Titulo</label>
-            <input type="text" name="title" value="{{ old('title', $category->title) }}">
+            <input class="form-control" type="text" name="title" value="{{ old('title', $category->title) }}">
         </div>
         <br>
         <div>
@@ -40,21 +40,19 @@
                 @endforeach
             @endif
             <label for="">Slug</label>
-            <input type="text" name="slug" value="{{ old('slug', $category->slug) }}">
+            <input class="form-control" type="text" name="slug" value="{{ old('slug', $category->slug) }}">
         </div>
         <br>
         <div>
-            <button type="submit">Enviar</button>
-            <button type="reset">Limpiar</button>
+            <button type="submit" class="btn-send">Enviar</button>
+            <button type="reset" class="btn-clean">Limpiar</button>
         </div>
-
-
     </form>
-
+    <a href="{{ route('category.index') }}"><button type="button" class="btn-primary">Regresar al listado</button></a>
 @endsection
 
 @section('footer')
-    <a href="{{ route('category.index') }}"><button type="button">Regresar al listado</button></a>
+    
 @endsection
 
 </body>

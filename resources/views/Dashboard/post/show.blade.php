@@ -17,10 +17,12 @@
     <br>
     <h4>Ruta de Imagen: {{ $post->image }}</h4>
     <img src="{{ $post->image }}" alt="">  
+
+    <a href="{{ route('post.index') }}"><button type="button" class="btn-primary">Regresar al listado</button></a>
 @endsection
 
 @section('footer')
-    <a href="{{ route('post.index') }}"><button type="button">Regresar al listado</button></a>
+    
 @endsection
 
 </body>

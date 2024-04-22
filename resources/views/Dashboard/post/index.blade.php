@@ -14,10 +14,8 @@
 @endsection
 
 @section('content')
-
-    <a href="{{ route('post.create') }}"><button type="button">Crear Post</button></a>
-
-    <div class="container">
+        
+        <a href="{{ route('post.create') }}"><button type="button" class="btn-primary">Crear Post</button></a>
         <table class="table">
             <thead>
                 <tr>
@@ -47,14 +45,23 @@
                         <td>
                             {{ $post->posted }}
                         </td>
-                        <td>
-                            <a href="{{ route('post.edit', $post->id) }}"><button type="button">Editar</button></a>
-                            <a href="{{ route('post.show', $post->id) }}"><button type="button">Ver</button></a>
-    
+                        <td class="td-action">
+                            <a href="{{ route('post.edit', $post->id) }}">
+                                <button type="button" class="btn-edit">
+                                    <span>
+                                        Editar
+                                    </span>   
+                                </button>
+                            </a>
+                            <a href="{{ route('post.show', $post->id) }}">
+                                <button type="button" class="btn-show">
+                                    Ver
+                                </button>
+                            </a>
                             <form action="{{ route('post.destroy', $post->id) }}" method="post">
                                 @csrf
                                 @method("DELETE")
-                                <button type="submit">Eliminar</button>
+                                <button type="submit" class="btn-danger">Eliminar</button>
                             </form>
                             
                         </td>
@@ -65,7 +72,7 @@
     
         {{ $posts->links() }}
     
-    </div>
+
     
 @endsection
 
@@ -79,7 +86,7 @@
         <img src="{{ $post->image }}" alt="">    
     @endforeach --}}
 
-    <h3>Ejemplo de consulta select + inner join</h3>
+    {{-- <h3>Ejemplo de consulta select + inner join</h3>
     <table>
         <tr>
             <td style="width: 25%"><strong>Titulo</strong></td>
@@ -96,5 +103,5 @@
                 </tr>
         @endforeach
     </table>
-    {{ $join->links() }}
+    {{ $join->links() }} --}}
 @endsection
