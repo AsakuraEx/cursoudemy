@@ -44,11 +44,11 @@
         </div>
         <br>
         <div>
-            <button type="submit" class="btn-send">Enviar</button>
-            <button type="reset" class="btn-clean">Limpiar</button>
+            <button type="submit" class="btn btn-primary-outline">Enviar</button>
+            <button type="reset" class="btn btn-info-outline">Limpiar</button>
         </div>
     </form>
-    <a href="{{ route('category.index') }}"><button type="button" class="btn-primary">Regresar al listado</button></a>
+    <a href="{{ route('category.index') }}"><button type="button" class="btn btn-dark-outline">Regresar al listado</button></a>
 @endsection
 
 @section('footer')

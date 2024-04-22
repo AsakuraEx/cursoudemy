@@ -19,7 +19,7 @@
 
 
     </form>
-    <a href="{{ route('post.index') }}"><button type="button" class="btn-primary">Regresar al listado</button></a>
+    <a href="{{ route('post.index') }}"><button type="button" class="btn btn-dark-outline">Regresar al listado</button></a>
 
 
 

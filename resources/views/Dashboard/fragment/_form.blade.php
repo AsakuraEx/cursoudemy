@@ -85,6 +85,6 @@
 </div>
 <br>
 <div>
-    <button type="submit" class="btn-send">Enviar</button>
-    <button type="reset" class="btn-clean">Limpiar</button>
+    <button type="submit" class="btn btn-primary-outline">Enviar</button>
+    <button type="reset" class="btn btn-info-outline">Limpiar</button>
 </div>

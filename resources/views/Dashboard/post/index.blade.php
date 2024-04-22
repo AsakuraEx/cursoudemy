@@ -15,17 +15,18 @@
 
 @section('content')
         
-        <a href="{{ route('post.create') }}"><button type="button" class="btn-primary">Crear Post</button></a>
+    <a href="{{ route('post.create') }}"><button type="button" class="btn btn-success-outline mb-2">Crear Post</button></a>
+    <div class="place-content-center">
         <table class="table">
             <thead>
                 <tr>
-                    <th>
+                    <th class="w-1/3">
                         Titulo
                     </th>
-                    <th>
+                    <th class="w-1/3">
                         Categoria
                     </th>
-                    <th>
+                    <th class="w-1/3">
                         Posted
                     </th>
                     <th>
@@ -45,23 +46,27 @@
                         <td>
                             {{ $post->posted }}
                         </td>
-                        <td class="td-action">
-                            <a href="{{ route('post.edit', $post->id) }}">
-                                <button type="button" class="btn-edit">
-                                    <span>
-                                        Editar
-                                    </span>   
-                                </button>
-                            </a>
-                            <a href="{{ route('post.show', $post->id) }}">
-                                <button type="button" class="btn-show">
-                                    Ver
-                                </button>
-                            </a>
-                            <form action="{{ route('post.destroy', $post->id) }}" method="post">
+                        <td class="td-action items-center">
+                            <div class="mx-1">
+                                <a href="{{ route('post.edit', $post->id) }}">
+                                    <button type="button" class="btn btn-warning-outline">
+                                        <span>
+                                            Editar
+                                        </span>   
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="mx-1">
+                                <a href="{{ route('post.show', $post->id) }}">
+                                    <button type="button" class="btn btn-info-outline">
+                                        Ver
+                                    </button>
+                                </a>
+                            </div>
+                            <form action="{{ route('post.destroy', $post->id) }}" method="post" class="mx-1">
                                 @csrf
                                 @method("DELETE")
-                                <button type="submit" class="btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger-outline">Eliminar</button>
                             </form>
                             
                         </td>
@@ -71,6 +76,9 @@
         </table>
     
         {{ $posts->links() }}
+    </div>
+        
+        
     
 
     

@@ -32,6 +32,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function(){
         'post' => PostController::class,
         'category' => CategoryController::class,
     ]);
+
+    Route::get('/testing', function(){
+        return view('dashboard.testing');
+    })->name('testing');
 });
 
 // Route::get('/contact', function() {
