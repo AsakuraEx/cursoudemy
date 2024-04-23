@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 .table{
     @apply table-auto w-auto
@@ -26,7 +31,7 @@
 
 .form-control {
     @apply block py-1 shadow-sm bg-gray-100 border-t-0 border-l-0 border-r-0 border-b-2 rounded-sm border-b-gray-400 
-    focus:bg-gray-200 hover:bg-gray-200 focus:ring-0 focus:border-b-gray-400
+    focus:bg-gray-200 hover:bg-gray-200 focus:ring-0 focus:border-b-green-400 valid:border-b-green-400
 }
 
 .form-area{
@@ -92,4 +97,8 @@
 }
 .active{
     @apply bg-blue-600 text-white hover:bg-blue-700 font-bold
+}
+.checkbox{
+    @apply appearance-none bg-transparent text-purple-800
+    focus:ring-0 focus:ring-offset-0 checked:bg-purple-800 border-gray-300 border-2 accent-purple-800
 }
