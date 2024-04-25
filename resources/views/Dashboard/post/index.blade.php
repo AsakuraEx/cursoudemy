@@ -20,14 +20,17 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="w-1/3">
+                    <th class="w-1/4">
                         Titulo
                     </th>
-                    <th class="w-1/3">
+                    <th class="w-1/4">
                         Categoria
                     </th>
-                    <th class="w-1/3">
+                    <th class="w-1/4">
                         Posted
+                    </th>
+                    <th class="w-1/4">
+                        Imagen
                     </th>
                     <th>
                         Acciones
@@ -36,7 +39,7 @@
             </thead>
             <tbody>
                 @foreach ($posts as $post)
-                    <tr>
+                    <tr class="hover:bg-gray-200 transition-all">
                         <td>
                             {{ $post->title }}
                         </td>
@@ -45,6 +48,11 @@
                         </td>
                         <td>
                             {{ $post->posted }}
+                        </td>
+                        <td>
+                            <div class="flex justify-center text-center items-center">
+                                <img class="img-index" src="{{ $post->image }}" alt="">
+                            </div>
                         </td>
                         <td class="td-action items-center">
                             <div class="mx-1">

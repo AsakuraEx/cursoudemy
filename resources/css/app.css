@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 .table{
     @apply table-auto w-auto
 }
@@ -23,6 +24,7 @@
 
 .table td {
     @apply px-4 py-2 whitespace-normal text-center
+    
 }
 
 .td-action{
@@ -101,4 +103,41 @@
 .checkbox{
     @apply appearance-none bg-transparent text-purple-800
     focus:ring-0 focus:ring-offset-0 checked:bg-purple-800 border-gray-300 border-2 accent-purple-800
+}
+
+.img-index{
+    @apply rounded-full px-2 py-2 w-3/4
+}
+
+/* **************** CLASES CREADAS PARA EL SIDEBAR ********************* */
+.body {
+    @apply h-screen bg-slate-200 font-sans
+}
+
+.sidebar{
+    @apply flex w-72 h-full bg-blue-950 border-gray-500 rounded-r-lg text-white px-2
+}
+
+.image-text{
+    @apply flex items-center py-2
+}
+
+.image{
+    @apply h-16 w-16
+}
+
+.name{
+    @apply block text-xl px-2 font-bold font-sans
+}
+
+.profession{
+    @apply block font-sans text-sm px-2 underline underline-offset-2 
+}
+
+.sidebar-menu{
+    @apply py-2 mt-1
+}
+
+.sidebar-option{
+    @apply text-left px-3 py-4 rounded-md w-full hover:bg-blue-900
 }

@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 // Route::resource('post', PostController::class);
 // Route::resource('category', CategoryController::class);
 
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function(){
     
     Route::get('/', function () {
         return view('dashboard');
@@ -37,6 +37,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function(){
         return view('dashboard.testing');
     })->name('testing');
 });
+
+Route::get('/sidebar',function(){
+    return view('dashboard.sidebar');
+})->name('sidebar');
 
 // Route::get('/contact', function() {
 //     $users = ['Francisco Escobar', 'Diego Escobar', 'Sara Mancia'];

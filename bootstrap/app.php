@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        //ESTO ES PROPIO DE LARAVEL 11 (NO SE HACE EN LARAVEL 10)
+        $middleware->alias([
+
+            'admin' => \App\Http\Middleware\UserAccessDashboardMiddleware::class,
+
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

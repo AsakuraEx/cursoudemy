@@ -31,8 +31,9 @@
                 <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('post.index') }}"><li class="px-4 border border-gray-600 m-0 py-4">Posts</li></a>
                 <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('category.index') }}"><li class="px-4 border border-gray-600 m-0 py-4">Categories</li></a>
                 <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('testing') }}"><li class="px-4 border border-gray-600 m-0 py-4">Testing</li></a>
+                <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('sidebar') }}"><li class="px-4 border border-gray-600 m-0 py-4">Sidebar</li></a>
             </ul>
-        </nav>
+    </nav>
         <div class="container">
             <div class="card card-white mb-4">
                 <span class="title text-purple-900">
