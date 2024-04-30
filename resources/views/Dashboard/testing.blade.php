@@ -13,9 +13,14 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
 
 </head>
+
 <body class="bg-slate-200 font-sans">
     <nav class="bg-gray-600 flex py-3 px-4 align-center w-full h-full">
         <span>
@@ -33,6 +38,14 @@
                 <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('testing') }}"><li class="px-4 border border-gray-600 m-0 py-4">Testing</li></a>
                 <a class="text-center text-white hover:text-gray-200 hover:border-b-2 hover:border-gray-100" href="{{ route('sidebar') }}"><li class="px-4 border border-gray-600 m-0 py-4">Sidebar</li></a>
             </ul>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="myFunction()">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a class="dropdown-option" href="">Link 1</a>
+                    <a class="dropdown-option" href="">Link 1</a>
+                    <a class="dropdown-option" href="">Link 1</a>
+                </div>
+            </div>
     </nav>
         <div class="container">
             <div class="card card-white mb-4">
